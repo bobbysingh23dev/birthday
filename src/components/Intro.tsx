@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { fireBarrage, fireConfetti } from '../lib/confetti'
+import { pauseMusic, playMusic } from '../lib/music'
 import { initAudio, playBoom, playTick, setMuted } from '../lib/sound'
 import { Embers } from './Embers'
+import { Portrait } from './Portrait'
 import './Intro.css'
 
 type Phase = 'gate' | 'run' | 'leaving'
@@ -67,6 +69,8 @@ export function Intro({ onDone }: { onDone: () => void }) {
 
   const begin = () => {
     initAudio()
+    setMuted(false)
+    playMusic()
     setPhase(reduce ? 'leaving' : 'run')
   }
   const skip = () => setPhase('leaving')
@@ -74,6 +78,8 @@ export function Intro({ onDone }: { onDone: () => void }) {
     setMutedState((m) => {
       const next = !m
       setMuted(next)
+      if (next) pauseMusic()
+      else playMusic()
       return next
     })
   }
@@ -154,6 +160,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
             <span className="intro__flash" aria-hidden="true" />
             <span className="intro__shock intro__shock--boom" aria-hidden="true" />
             <span className="intro__shock intro__shock--boom intro__shock--delay" aria-hidden="true" />
+            <Portrait className="intro__photo" />
             <h2 className="intro__boom-title">
               Happy Birthday,
               <br />
@@ -163,19 +170,21 @@ export function Intro({ onDone }: { onDone: () => void }) {
         )}
       </div>
 
-      <button className="intro__mute" onClick={toggleMute} aria-label={muted ? 'Unmute' : 'Mute'}>
-        {muted ? (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M11 5L6 9H3v6h3l5 4V5z" />
-            <path d="M22 9l-6 6M16 9l6 6" />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M11 5L6 9H3v6h3l5 4V5z" />
-            <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12" />
-          </svg>
-        )}
-      </button>
+      {phase !== 'gate' && (
+        <button className="intro__mute" onClick={toggleMute} aria-label={muted ? 'Unmute' : 'Mute'}>
+          {muted ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 5L6 9H3v6h3l5 4V5z" />
+              <path d="M22 9l-6 6M16 9l6 6" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M11 5L6 9H3v6h3l5 4V5z" />
+              <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12" />
+            </svg>
+          )}
+        </button>
+      )}
 
       {phase === 'run' && (
         <button className="intro__skip" onClick={skip}>

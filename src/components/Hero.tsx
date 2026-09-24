@@ -1,10 +1,12 @@
 import { Balloons } from './Balloons'
+import { Portrait } from './Portrait'
 
 export function Hero() {
   return (
     <section className="hero">
       <Balloons />
       <div className="hero__inner wrap">
+        <Portrait className="hero__portrait" />
         <span className="eyebrow">✦ September 25th · Milestone Celebration</span>
 
         <h1>
