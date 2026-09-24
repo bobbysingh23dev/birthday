@@ -327,70 +327,6 @@ function BalloonGame() {
   );
 }
 
-/* ---------------- Sky lantern wish ---------------- */
-interface FloatingLantern {
-  id: number;
-  text: string;
-  left: number;
-}
-
-function Lantern() {
-  const [text, setText] = useState("");
-  const [lanterns, setLanterns] = useState<FloatingLantern[]>([]);
-  const idRef = useRef(0);
-
-  const release = () => {
-    const wish = text.trim() || "Happy Birthday, Manish";
-    const id = idRef.current++;
-    const left = 18 + Math.random() * 64;
-    setLanterns((ls) => [...ls, { id, text: wish, left }]);
-    setText("");
-    window.setTimeout(
-      () => setLanterns((ls) => ls.filter((l) => l.id !== id)),
-      9000,
-    );
-  };
-
-  return (
-    <div className="lanternbox">
-      <div className="lanternbox__sky">
-        <div className="lanternbox__stars" />
-        {lanterns.map((l) => (
-          <div key={l.id} className="lantern" style={{ left: `${l.left}%` }}>
-            <div className="lantern__glow" />
-            <div className="lantern__body" />
-            <div className="lantern__wish">{l.text}</div>
-          </div>
-        ))}
-        {lanterns.length === 0 && (
-          <div className="lanternbox__hint">
-            Your wish will float up here ✨
-          </div>
-        )}
-      </div>
-      <form
-        className="lanternbox__form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          release();
-        }}
-      >
-        <input
-          className="lanternbox__input"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Make a wish for Manish…"
-          maxLength={60}
-          aria-label="Your wish"
-        />
-        <button className="btn btn--gold" type="submit">
-          🏮 Release
-        </button>
-      </form>
-    </div>
-  );
-}
-
 /* ---------------- Section ---------------- */
 export function Surprises() {
   return (
@@ -401,9 +337,7 @@ export function Surprises() {
           <h2>
             Little <span className="gold-text">Surprises</span>
           </h2>
-          <p>
-            Tap, scratch, pop and wish — a handful of playful gifts to unwrap.
-          </p>
+          <p>Tap, scratch and pop — a handful of playful gifts to unwrap.</p>
         </Reveal>
 
         <Reveal>
@@ -419,13 +353,6 @@ export function Surprises() {
         </Reveal>
         <Reveal>
           <BalloonGame />
-        </Reveal>
-
-        <Reveal className="surprises__sub">
-          <h3>Send a wish to the sky</h3>
-        </Reveal>
-        <Reveal>
-          <Lantern />
         </Reveal>
       </div>
     </section>
