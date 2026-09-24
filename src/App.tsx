@@ -6,6 +6,7 @@ import { Hero } from './components/Hero'
 import { Pillars } from './components/Pillars'
 import { Gallery } from './components/Gallery'
 import { EgoBooster } from './components/EgoBooster'
+import { Celebrate } from './components/Celebrate'
 import { Wish } from './components/Wish'
 import { Footer } from './components/Footer'
 import { MusicToggle } from './components/MusicToggle'
@@ -55,6 +56,7 @@ function App() {
         <Pillars />
         <Gallery />
         <EgoBooster />
+        <Celebrate />
         <Wish />
       </main>
       <Footer onReplay={replayIntro} />

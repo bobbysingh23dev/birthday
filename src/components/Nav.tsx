@@ -17,6 +17,7 @@ export function Nav() {
           <a href="#faces">The Faces</a>
           <a href="#gallery">Moments</a>
           <a href="#ego">Ego Booster</a>
+          <a href="#journey">The Day</a>
           <a href="#wish">Birthday Wish</a>
         </nav>
 
