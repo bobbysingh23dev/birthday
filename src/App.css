@@ -442,7 +442,9 @@
   border-radius: var(--radius);
   padding: 24px 22px;
   overflow: hidden;
-  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+  transform: perspective(850px) translateY(var(--lift, 0px)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform-origin: center;
+  transition: transform 0.12s ease, border-color 0.22s, box-shadow 0.22s;
 }
 .pillar::before {
   content: "";
@@ -466,11 +468,27 @@
   pointer-events: none;
 }
 .pillar:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.42);
+  --lift: -6px;
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 26px 52px rgba(0, 0, 0, 0.5);
 }
 .pillar:hover::after {
+  opacity: 1;
+}
+.pillar__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: var(--radius);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.14), transparent 46%),
+    linear-gradient(115deg, transparent 34%, color-mix(in srgb, var(--accent) 26%, transparent) 50%, transparent 66%);
+}
+.pillar:hover .pillar__sheen {
   opacity: 1;
 }
 .pillar__top {
