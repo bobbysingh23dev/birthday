@@ -18,6 +18,7 @@ export function Nav() {
           <a href="#gallery">Moments</a>
           <a href="#ego">Hype</a>
           <a href="#journey">The Day</a>
+          <a href="#surprises">Surprises</a>
           <a href="#wish">Birthday Wish</a>
         </nav>
 

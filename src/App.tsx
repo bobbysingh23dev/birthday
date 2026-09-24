@@ -7,9 +7,11 @@ import { Pillars } from './components/Pillars'
 import { Gallery } from './components/Gallery'
 import { EgoBooster } from './components/EgoBooster'
 import { Celebrate } from './components/Celebrate'
+import { Surprises } from './components/Surprises'
 import { Wish } from './components/Wish'
 import { Footer } from './components/Footer'
 import { MusicToggle } from './components/MusicToggle'
+import { CursorTrail } from './components/CursorTrail'
 import './App.css'
 
 const INTRO_KEY = 'manish-intro-seen'
@@ -57,10 +59,12 @@ function App() {
         <Gallery />
         <EgoBooster />
         <Celebrate />
+        <Surprises />
         <Wish />
       </main>
       <Footer onReplay={replayIntro} />
       <MusicToggle />
+      <CursorTrail />
     </>
   )
 }
