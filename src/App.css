@@ -131,6 +131,9 @@
   border-radius: 50%;
   display: block;
   border: 3px solid var(--bg);
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 .portrait__fallback {
   width: 100%;

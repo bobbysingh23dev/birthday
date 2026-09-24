@@ -13,6 +13,8 @@ export function Portrait({ className = '' }: { className?: string }) {
           src={PHOTO_SRC}
           alt="Manish"
           className="portrait__img"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
           onError={() => setFailed(true)}
         />
       )}

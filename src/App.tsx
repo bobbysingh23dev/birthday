@@ -4,6 +4,7 @@ import { Intro } from './components/Intro'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { Pillars } from './components/Pillars'
+import { Gallery } from './components/Gallery'
 import { EgoBooster } from './components/EgoBooster'
 import { Wish } from './components/Wish'
 import { Footer } from './components/Footer'
@@ -52,6 +53,7 @@ function App() {
       <main id="top">
         <Hero />
         <Pillars />
+        <Gallery />
         <EgoBooster />
         <Wish />
       </main>
