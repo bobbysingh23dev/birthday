@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, TouchEvent } from 'react'
 import { moments } from '../data/gallery'
 import { Reveal } from './Reveal'
+import { Hearts } from './Hearts'
 import './Gallery.css'
 
 const reduceMotion =
@@ -46,6 +47,7 @@ export function Gallery() {
 
   return (
     <section className="section gallery" id="gallery">
+      <Hearts />
       <div className="wrap">
         <Reveal className="section__head">
           <span className="eyebrow eyebrow--plain">Captured Moments</span>

@@ -1,3 +1,52 @@
+/* section is the clipping stage for the rising hearts */
+.gallery {
+  position: relative;
+  overflow: hidden;
+}
+.gallery > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- rising hearts field ---------- */
+.heartfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.gh {
+  position: absolute;
+  bottom: 0;
+  width: var(--size, 18px);
+  opacity: var(--op, 0.9);
+  filter: blur(var(--blur, 0px));
+  animation: ghRise var(--dur, 13s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+.gh__inner {
+  display: block;
+  animation: ghSway var(--sd, 5s) ease-in-out infinite alternate;
+}
+.gh svg {
+  display: block;
+  width: var(--size, 18px);
+  height: var(--size, 18px);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+@keyframes ghRise {
+  from { transform: translateY(60px); }
+  to { transform: translateY(-820px); }
+}
+@keyframes ghSway {
+  from { transform: translateX(calc(var(--sway, 12px) * -1)); }
+  to { transform: translateX(var(--sway, 12px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heartfield { display: none; }
+}
+
 .gallery__frame {
   max-width: 820px;
   margin: 0 auto;
