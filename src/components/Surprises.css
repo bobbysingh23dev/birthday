@@ -136,34 +136,31 @@
   background: var(--gold-bright);
   box-shadow: -11px 0 0 -2px var(--gold-deep), 11px 0 0 -2px var(--gold-deep);
 }
-.gift__note {
+.gift__teddy {
   position: absolute;
   left: 50%;
-  bottom: 44px;
-  width: 200px;
-  transform: translate(-50%, 20px);
+  bottom: 52px;
+  width: 92px;
+  z-index: 3;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, 26px) scale(0.2);
   opacity: 0;
   pointer-events: none;
-  z-index: 1;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.98rem;
-  line-height: 1.4;
-  color: #efe9dc;
-  background: linear-gradient(180deg, var(--surface-3), var(--surface-2));
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 14px;
-  transition: opacity 0.5s 0.15s, transform 0.5s 0.15s;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s;
 }
 .gift.is-open .gift__lid {
   transform: translate(-50%, -48px) rotate(-12deg);
   opacity: 0;
 }
-.gift.is-open .gift__note {
+.gift.is-open .gift__teddy {
   opacity: 1;
-  transform: translate(-50%, -34px);
-  pointer-events: auto;
+  transform: translate(-50%, -46px) scale(1);
+  animation: teddyWiggle 2.2s ease-in-out 0.6s infinite;
+}
+@keyframes teddyWiggle {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: -5deg; }
+  75% { rotate: 5deg; }
 }
 @keyframes giftBob {
   0%, 100% { transform: translateY(0); }
