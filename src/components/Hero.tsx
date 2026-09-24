@@ -57,7 +57,7 @@ export function Hero() {
             Explore His Dimensions ↓
           </a>
           <a className="btn btn--ghost" href="#ego">
-            ⚡ The Ego Booster
+            ⚡ The Hype Machine
           </a>
         </div>
       </div>

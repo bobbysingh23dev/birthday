@@ -16,7 +16,7 @@ export function Nav() {
         <nav className="nav__links">
           <a href="#faces">The Faces</a>
           <a href="#gallery">Moments</a>
-          <a href="#ego">Ego Booster</a>
+          <a href="#ego">Hype</a>
           <a href="#journey">The Day</a>
           <a href="#wish">Birthday Wish</a>
         </nav>

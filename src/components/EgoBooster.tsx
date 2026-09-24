@@ -24,7 +24,7 @@ export function EgoBooster() {
         <Reveal className="section__head">
           <span className="eyebrow">Daily Dose Protocol</span>
           <h2>
-            The Royal <span className="gold-text">Ego Booster</span> 🔥
+            The Royal <span className="gold-text">Hype Machine</span> 🔥
           </h2>
           <p>
             Because even the most multifaceted geniuses deserve their daily dose of hype. Tap below to
