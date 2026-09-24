@@ -66,11 +66,9 @@
 }
 .intro__curtain--l {
   left: 0;
-  box-shadow: inset -1px 0 0 rgba(245, 196, 81, 0.25), 24px 0 70px rgba(0, 0, 0, 0.6);
 }
 .intro__curtain--r {
   right: 0;
-  box-shadow: inset 1px 0 0 rgba(245, 196, 81, 0.25), -24px 0 70px rgba(0, 0, 0, 0.6);
 }
 .intro.is-leaving .intro__curtain--l {
   transform: translateX(-101%);

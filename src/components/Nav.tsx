@@ -1,4 +1,4 @@
-import { fireConfetti } from '../lib/confetti'
+import { fireConfetti } from "../lib/confetti";
 
 export function Nav() {
   return (
@@ -7,7 +7,7 @@ export function Nav() {
         <a className="brand" href="#top">
           <span className="brand__mark">M</span>
           <span>
-            <span className="brand__name">M2S · MANISH</span>
+            <span className="brand__name">M25 · MANISH</span>
             <br />
             <span className="brand__sub">25 · SEPTEMBER</span>
           </span>
@@ -26,5 +26,5 @@ export function Nav() {
         </button>
       </div>
     </header>
-  )
+  );
 }
